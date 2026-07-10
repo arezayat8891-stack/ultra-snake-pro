@@ -1,17 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ultra Snake Pro</title>
-<link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VoxelCraft</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Minecraft Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+
+    <!-- Import Map -->
+    <script type="importmap">
+    {
+      "imports": {
+        "three":"https://unpkg.com/three@0.160.0/build/three.module.js",
+        "three/addons/":"https://unpkg.com/three@0.160.0/examples/jsm/"
+      }
+    }
+    </script>
 </head>
+
 <body>
 
-<h1>🐍 Ultra Snake Pro</h1>
-<canvas id="game" width="500" height="500"></canvas>
-<div>Score: <span id="score">0</span></div>
+<!-- Canvas -->
+<canvas id="gameCanvas"></canvas>
 
-<script src="script.js"></script>
+<!-- Start Screen -->
+<div id="startScreen">
+
+    <h1>VOXELCRAFT</h1>
+    <p>A Minecraft-inspired Browser Game</p>
+
+    <div class="menu">
+
+        <input
+            id="seedInput"
+            type="text"
+            placeholder="World Seed">
+
+        <select id="gameMode">
+
+            <option value="creative">
+                Creative
+            </option>
+
+            <option value="survival">
+                Survival
+            </option>
+
+        </select>
+
+        <button id="playButton">
+            PLAY
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Pause Menu -->
+
+<div id="pauseMenu" class="hidden">
+
+    <h2>Paused</h2>
+
+    <button id="resumeButton">
+        Resume
+    </button>
+
+    <button id="settingsButton">
+        Settings
+    </button>
+
+    <button id="saveButton">
+        Save World
+    </button>
+
+</div>
+
+<!-- HUD -->
+
+<div id="hud" class="hidden">
+
+    <div id="crosshair"></div>
+
+    <div id="stats">
+
+        <div id="fps">FPS</div>
+
+        <div id="coords">XYZ</div>
+
+        <div id="seed">Seed</div>
+
+    </div>
+
+    <div id="modeTag">
+        Creative
+    </div>
+
+    <div id="hotbar">
+
+        <div class="slot active"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+        <div class="slot"></div>
+
+    </div>
+
+    <div id="healthBar"></div>
+
+    <div id="hungerBar"></div>
+
+</div>
+
+<!-- Loading Screen -->
+
+<div id="loading" class="hidden">
+
+    <h2>Generating World...</h2>
+
+</div>
+
+<!-- Game -->
+
+<script type="module" src="game.js"></script>
+
 </body>
 </html>
